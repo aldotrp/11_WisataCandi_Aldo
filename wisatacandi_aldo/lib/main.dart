@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wisatacandi_aldo/data/candi_data.dart';
+import 'screens/detail_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return  MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      home: DetailScreen(candi: candiList[0],),
     );
   }
 }
+
