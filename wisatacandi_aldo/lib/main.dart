@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wisatacandi_aldo/data/candi_data.dart';
+import 'package:wisatacandi_aldo/screens/Search_Screen.dart';
+import 'package:wisatacandi_aldo/screens/home_screen.dart';
 import 'package:wisatacandi_aldo/screens/profile_screen.dart';
 import 'package:wisatacandi_aldo/screens/sign_in_screen.dart';
 import 'package:wisatacandi_aldo/screens/sign_up_screen.dart';
-import 'screens/detail_screen.dart';
-import 'screens/profile_screen.dart';
-import 'screens/sign_in_screen.dart';
+
+
 
 void main() {
   runApp(const MainApp());
@@ -33,10 +34,13 @@ class MainApp extends StatelessWidget {
         ),
         
       ),
-      //home: DetailScreen(candi: candiList[0],),
-      //home : const ProfileScreen(),
-      //  home : SignInScreen(),
-      home : SignUpScreen(),
+      // home: DetailScreen(candi: candiList[0],),
+      // {"conversationId":"220f923f-b9cf-4630-8467-b6cf6ef1afa2","source":"instruct"}
+      // home : const ProfileScreen(),
+      // home : SignInScreen(),
+      // home : SignUpScreen(),
+      // home : SearchScreen(),
+      home : HomeScreen()
     );
   }
 }
