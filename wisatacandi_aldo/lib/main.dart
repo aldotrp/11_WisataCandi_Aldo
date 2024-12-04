@@ -32,7 +32,13 @@ class MainApp extends StatelessWidget {
           surface: Colors.deepPurple[50],
         ),
       ),
-      home: const MainScreen(),
+      home: SignUpScreen(),
+      initialRoute: '/',
+      routes: {
+        '/homescreen': (context) => const MainScreen(),
+        '/signin': (context) =>  SignInScreen(),
+        '/signup': (context) =>  SignUpScreen(),
+        },
     );
   }
 }

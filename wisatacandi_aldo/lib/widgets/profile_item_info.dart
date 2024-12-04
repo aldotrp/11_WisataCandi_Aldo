@@ -31,7 +31,7 @@ class ProfileItemInfo extends StatelessWidget {
           )
         ),
         Expanded(child: 
-        Text(':$value', style: const TextStyle(fontSize: 18))),
+        Text(': $value', style: const TextStyle(fontSize: 18))),
         if(showEditIcon) 
           InkWell(
             onTap: onEditPressed,
