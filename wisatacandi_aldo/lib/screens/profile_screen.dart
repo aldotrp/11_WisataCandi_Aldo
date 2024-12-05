@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wisatacandi_aldo/data/candi_data.dart';
 import 'package:wisatacandi_aldo/widgets/profile_item_info.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 
@@ -63,6 +64,7 @@ final decryptedFullName = encrypter.decrypt64(encryptedfullName, iv: iv);
 return {'username': decryptedUsername, 'password': decryptedPassword, 'name' : decryptedFullName};
 
 }
+
   // Fungsi untuk membaca data pengguna dari SharedPreferences
  void _loadUserData() async {
   final data = await retrieveAndDecryptDataFromPrefs(SharedPreferences.getInstance());
@@ -71,7 +73,18 @@ return {'username': decryptedUsername, 'password': decryptedPassword, 'name' : d
     userName = data['username'] ?? 'Pengguna belum diatur';
   });
 }
+ void _loadFavorites() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    for (var candi in candiList) { // allCandis adalah daftar semua Candi
+      bool isFavorite = prefs.getBool('favorite_${candi.name.replaceAll(' ', '_')}') ?? false;
+      if (isFavorite) {
+        favoriteCandiCount++;
+      }
+    }
+    setState(() {
 
+    });
+  }
 
   // Fungsi untuk Sign In
   void SignIn() {
@@ -99,6 +112,7 @@ return {'username': decryptedUsername, 'password': decryptedPassword, 'name' : d
   void initState() {
     super.initState();
     _loadUserData();
+    _loadFavorites();
   }
 
   @override
@@ -226,4 +240,8 @@ return {'username': decryptedUsername, 'password': decryptedPassword, 'name' : d
       ),
     );
   }
+}
+
+extension on Map<String, String> {
+  getInt(String s) {}
 }
