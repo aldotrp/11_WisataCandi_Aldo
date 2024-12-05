@@ -82,9 +82,9 @@ return {'username': decryptedUsername, 'password': decryptedPassword, 'name' : d
   void SignOut() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.setBool('isSignedIn', false);
-  await prefs.setString('name', '');
-  await prefs.setString('username', '');
-  await prefs.setString('password', '');
+  // await prefs.setString('name', '');
+  // await prefs.setString('username', '');
+  // await prefs.setString('password', '');
   setState(() {
     isSignedIn = false;
     fullName = "DummyName";
